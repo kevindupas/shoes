@@ -17,7 +17,7 @@ const Product = () => {
   const [product, setProduct] = useState({});
   const path = window.location.pathname.replace("/product", "");
   useEffect(() => {
-    api.getOne(`http://localhost:8000/v1/products/${path}`).then((data) => {
+    api.getOne(`/v1/products/${path}`).then((data) => {
       console.log("DATA", data);
       setProduct(data);
     });

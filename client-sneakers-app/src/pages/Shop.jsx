@@ -62,7 +62,7 @@ const Shop = () => {
   const inputSliderRef = useRef();
 
   useEffect(() => {
-    api.getOne("http://localhost:8000/v1/products/").then((data) => {
+    api.getOne("/v1/products/").then((data) => {
       console.log("DATA", data);
       setProducts(data);
     });

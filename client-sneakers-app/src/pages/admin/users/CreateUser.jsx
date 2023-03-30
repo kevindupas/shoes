@@ -14,7 +14,7 @@ const validationSchema = yup.object({
     .string('Votre prénom')
     .min(2, 'Le prénom doit contenir au minimum 2 characters')
     .required("Le champ prénom est requis"),
-  
+
   lastname: yup
     .string('Entrer votre nom')
     .min(2, 'Le nom doit contenir au minimum 2 characters')
@@ -28,7 +28,7 @@ const validationSchema = yup.object({
     .string('Entrer votre password')
     .min(8, 'Le Password doit contebir au minimum 8 characters')
     .required('Password is required'),
-  
+
   role: yup
     .string('Entrer votre password')
 });
@@ -61,7 +61,7 @@ const CreateUser = () => {
 
 
       try {
-        const result = await api.adminCreateOne('http://localhost:8000/v1/admin/users', 
+        const result = await api.adminCreateOne('/v1/admin/users',
           {
             email: values.email,
             password: values.password,
@@ -75,12 +75,12 @@ const CreateUser = () => {
         if(result) {
           navigate("/admin/users/")
         }
-        
+
       } catch (err) {
         console.log('rtour error: ------')
         console.log('err: ', err)
-       
-      } 
+
+      }
     },
   });
 
@@ -88,7 +88,7 @@ const CreateUser = () => {
     <div id="create-user">
       <h2>Créer un nouveau utilisateur</h2>
       <Box>
-        <form id="form-signup" onSubmit={formik.handleSubmit} method="post" action="http://localhost:8000/auth/login">
+        <form id="form-signup" onSubmit={formik.handleSubmit} method="post" action="/auth/login">
           <div className="inner_signup">
             <Stack spacing={2} direction="column">
               <h1>Créer un compte</h1>
@@ -133,7 +133,7 @@ const CreateUser = () => {
                 error={formik.touched.email && Boolean(formik.errors.email)}
                 helperText={formik.touched.email && formik.errors.email}
               />
-                
+
               <TextField
                 required
                 label="Password"
@@ -176,7 +176,7 @@ const CreateUser = () => {
           </div>
         </form>
       </Box>
-  
+
     </div>
   )
 }

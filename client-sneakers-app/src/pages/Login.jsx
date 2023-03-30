@@ -14,11 +14,11 @@ const Login = () => {
 
   const handlerSubmit = async (e) => {
     e.preventDefault();
-    
+
     if(password !== '' && email !== '') {
       console.log(password, email)
       try {
-        const result = await api.login('http://localhost:8000/auth/login', 
+        const result = await api.login('/auth/login',
           {
             email,
             password
@@ -29,7 +29,7 @@ const Login = () => {
         }
       } catch (err) {
         console.log('err: ', err)
-      } 
+      }
     }
   }
 
@@ -43,7 +43,7 @@ const Login = () => {
 
   return (
     <Box>
-      <form id="form-login" onSubmit={(e) => handlerSubmit(e)} onChange={(e) => handlerChange(e)} method="post" action="http://localhost:8000/auth/login">
+      <form id="form-login" onSubmit={(e) => handlerSubmit(e)} onChange={(e) => handlerChange(e)} method="post" action="/auth/login">
         <div className="inner_login">
           <Stack spacing={2} direction="column">
           <h1>Se connecter</h1>
@@ -56,7 +56,7 @@ const Login = () => {
             name="email"
             size="small"
           />
-            
+
           <TextField
             required
             label="Password"
@@ -72,7 +72,7 @@ const Login = () => {
         </div>
       </form>
     </Box>
-    
+
   );
 };
 

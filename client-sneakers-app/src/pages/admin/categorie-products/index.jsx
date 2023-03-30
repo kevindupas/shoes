@@ -17,7 +17,7 @@ const CategorieProductAdmin = () => {
     console.log(token)
     const fetchCategorieProducts = async () => {
       const results = await api.adminGetAll(
-        'http://localhost:8000/v1/categorie-products',
+        '/v1/categorie-products',
         {headers: { 'x-access-token': token, 'Content-Type': 'application/json' }}
       )
       console.log(results);
@@ -25,14 +25,14 @@ const CategorieProductAdmin = () => {
     }
     fetchCategorieProducts();
   }, []);
-  
+
   const handleDelete = async (e, id) => {
     e.preventDefault();
     console.log(id)
     const localInfo = localStorage.getItem('user');
     const { token } = JSON.parse(localInfo);
     const results = await api.adminDeleteOne(
-      `http://localhost:8000/v1/admin/categorie-products/${id}`,
+      `/v1/admin/categorie-products/${id}`,
       {headers: { 'x-access-token': token, 'Content-Type': 'application/json' }}
     )
     console.group(results)
@@ -55,7 +55,7 @@ const CategorieProductAdmin = () => {
           </tr>
         </thead>
         <tbody>
-          
+
           {categories.map((c, i) => {
             console.log('c', c)
             return <tr key={`catgorrie-product-${c._id}`}>
@@ -69,7 +69,7 @@ const CategorieProductAdmin = () => {
               </td>
             </tr>
           })}
-          
+
         </tbody>
       </table>
     </div>

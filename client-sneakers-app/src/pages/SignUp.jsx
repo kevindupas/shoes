@@ -14,7 +14,7 @@ const validationSchema = yup.object({
     .string('Votre prénom')
     .min(2, 'Le prénom doit contenir au minimum 2 characters')
     .required("Le champ prénom est requis"),
-  
+
   lastname: yup
     .string('Entrer votre nom')
     .min(2, 'Le nom doit contenir au minimum 2 characters')
@@ -28,7 +28,7 @@ const validationSchema = yup.object({
     .string('Entrer votre password')
     .min(8, 'Le Password doit contebir au minimum 8 characters')
     .required('Password is required'),
-  
+
   confirmPassword: yup
     .string('Entrer votre password')
     .min(8, 'Le Password doit contebir au minimum 8 characters')
@@ -49,13 +49,13 @@ const SignUp = () => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-     
+
       console.log('formik submit-------------')
       console.log('---', values)
       // alert(JSON.stringify(values, null, 2));
 
       try {
-        const result = await api.signup('http://localhost:8000/auth/signup', 
+        const result = await api.signup('/auth/signup',
           {
             email: values.email,
             password: values.password,
@@ -73,14 +73,14 @@ const SignUp = () => {
       } catch (err) {
         console.log('rrtour error: ------')
         console.log('err: ', err)
-       
-      } 
+
+      }
     },
   });
 
   return (
     <Box>
-      <form id="form-signup" onSubmit={formik.handleSubmit} method="post" action="http://localhost:8000/auth/login">
+      <form id="form-signup" onSubmit={formik.handleSubmit} method="post" action="/auth/login">
         <div className="inner_signup">
           <Stack spacing={2} direction="column">
             <h1>Créer un compte</h1>
@@ -125,7 +125,7 @@ const SignUp = () => {
               error={formik.touched.email && Boolean(formik.errors.email)}
               helperText={formik.touched.email && formik.errors.email}
             />
-              
+
             <TextField
               required
               label="Password"

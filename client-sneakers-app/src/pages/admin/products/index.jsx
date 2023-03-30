@@ -17,7 +17,7 @@ const ProductAdmin = () => {
     console.log(token)
     const fetchProducts = async () => {
       const results = await api.adminGetAll(
-        'http://localhost:8000/v1/products',
+        '/v1/products',
         {headers: { 'x-access-token': token, 'Content-Type': 'application/json' }}
       )
       console.log(results);
@@ -25,14 +25,14 @@ const ProductAdmin = () => {
     }
     fetchProducts();
   }, []);
-  
+
   const handleDelete = async (e, id) => {
     e.preventDefault();
     console.log(id)
     const localInfo = localStorage.getItem('user');
     const { token } = JSON.parse(localInfo);
     const results = await api.adminDeleteOne(
-      `http://localhost:8000/v1/admin/products/${id}`,
+      `/v1/admin/products/${id}`,
       {headers: { 'x-access-token': token, 'Content-Type': 'application/json' }}
     )
     console.group(results)
@@ -58,7 +58,7 @@ const ProductAdmin = () => {
           </tr>
         </thead>
         <tbody>
-          
+
           {products.map((p, i) => {
             console.log('p', p)
             return <tr key={`product-${p._id}`}>
@@ -75,7 +75,7 @@ const ProductAdmin = () => {
               </td>
             </tr>
           })}
-          
+
         </tbody>
       </table>
     </div>

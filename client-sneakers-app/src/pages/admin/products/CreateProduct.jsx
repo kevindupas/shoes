@@ -36,7 +36,7 @@ const CreateProduct = () => {
       console.log(token)
 
       try {
-        const result = await api.adminCreateOne('http://localhost:8000/v1/admin/categorie-products', 
+        const result = await api.adminCreateOne('/v1/admin/categorie-products',
           {
             label: values.label,
           },
@@ -46,12 +46,12 @@ const CreateProduct = () => {
         if(result) {
           navigate('/admin/categorie-products');
         }
-        
+
       } catch (err) {
         console.log('retour error: ------')
         console.log('err: ', err)
-       
-      } 
+
+      }
     },
   });
 
@@ -59,7 +59,7 @@ const CreateProduct = () => {
     <div id="create-categorie">
       <h2>Créer un nouveau produit</h2>
       <Box>
-        <form id="form-signup" onSubmit={formik.handleSubmit} method="post" action="http://localhost:8000/v1/admin/categorie-products">
+        <form id="form-signup" onSubmit={formik.handleSubmit} method="post" action="/v1/admin/categorie-products">
           <div className="inner_signup">
             <Stack spacing={2} direction="column">
               <h1>Créer une categorie de produit</h1>
@@ -84,7 +84,7 @@ const CreateProduct = () => {
           </div>
         </form>
       </Box>
-  
+
     </div>
   )
 }

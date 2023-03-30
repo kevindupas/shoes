@@ -17,7 +17,7 @@ const UserAdmin = () => {
     console.log(token)
     const fetchUsers = async () => {
       const results = await api.adminGetAll(
-        'http://localhost:8000/v1/admin/users',
+        '/v1/admin/users',
         {headers: { 'x-access-token': token, 'Content-Type': 'application/json' }}
       )
       console.log(results);
@@ -25,14 +25,14 @@ const UserAdmin = () => {
     }
     fetchUsers();
   }, []);
-  
+
   const handleDelete = async (e, id) => {
     e.preventDefault();
     console.log(id)
     const localInfo = localStorage.getItem('user');
     const { token } = JSON.parse(localInfo);
     const results = await api.adminDeleteOne(
-      `http://localhost:8000/v1/admin/users/${id}`,
+      `/v1/admin/users/${id}`,
       {headers: { 'x-access-token': token, 'Content-Type': 'application/json' }}
     )
     console.group(results)
@@ -57,7 +57,7 @@ const UserAdmin = () => {
           </tr>
         </thead>
         <tbody>
-          
+
           {users.map((u, i) => {
             return <tr key={u._id}>
               <td>{u._id}</td>
@@ -71,7 +71,7 @@ const UserAdmin = () => {
               </td>
             </tr>
           })}
-          
+
         </tbody>
       </table>
     </div>

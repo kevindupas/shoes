@@ -13,7 +13,7 @@ const validationSchema = yup.object({
     .string('Votre prénom')
     .min(2, 'Le prénom doit contenir au minimum 2 characters')
     .required("Le champ prénom est requis"),
-  
+
   lastname: yup
     .string('Entrer votre nom')
     .min(2, 'Le nom doit contenir au minimum 2 characters')
@@ -27,7 +27,7 @@ const validationSchema = yup.object({
     .string('Entrer votre password')
     .min(8, 'Le Password doit contebir au minimum 8 characters')
     .required('Password is required'),
-  
+
   role: yup
     .string('Entrer votre password')
 });
@@ -63,7 +63,7 @@ const UserDetail = () => {
 
 
       try {
-        const result = await api.adminCreateOne('http://localhost:8000/v1/admin/users', 
+        const result = await api.adminCreateOne('/v1/admin/users',
           {
             email: values.email,
             password: values.password,
@@ -74,12 +74,12 @@ const UserDetail = () => {
           {headers: { 'x-access-token': token, 'Content-Type': 'application/json' }}
         )
         console.log('result in create User page', result);
-        
+
       } catch (err) {
         console.log('rtour error: ------')
         console.log('err: ', err)
-       
-      } 
+
+      }
     },
   });
 
@@ -90,7 +90,7 @@ const UserDetail = () => {
     console.log(token)
     const fetchUsers = async () => {
       const results = await api.adminGetOne(
-        `http://localhost:8000/v1/admin/users/${id}`,
+        `/v1/admin/users/${id}`,
         {headers: { 'x-access-token': token, 'Content-Type': 'application/json' }}
       )
       console.log(results);
@@ -104,9 +104,9 @@ const UserDetail = () => {
       <header>
         <h2>Detail de l'utilisateur</h2>
       </header>
-      
+
       <Box>
-        <form id="form-detail" onSubmit={formik.handleSubmit} method="post" action="http://localhost:8000/auth/login">
+        <form id="form-detail" onSubmit={formik.handleSubmit} method="post" action="/auth/login">
           <div className="inner_detail">
             <Stack spacing={2} direction="column">
               <h3>Detail</h3>
