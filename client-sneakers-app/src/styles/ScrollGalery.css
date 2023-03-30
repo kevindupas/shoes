@@ -1,0 +1,19 @@
+.scroll-menu {
+  overflow-x: scroll;
+  scrollbar-width: none;
+  animation: slide infinite 10s alternate;
+}
+
+.scroll-menu:hover {
+  animation-play-state: paused;
+}
+
+@keyframes slide {
+  0% {
+    margin-left: 0;
+  }
+
+  100% {
+    margin-left: -500px;
+  }
+}

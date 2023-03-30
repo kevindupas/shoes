@@ -1,0 +1,121 @@
+@import url('./vars.css');
+nav {
+  border-bottom: 2px solid #DD624E;
+}
+
+.nav-link {
+  font-weight: 600;
+}
+
+.nav-link:first-child:hover {
+  background-color:#DD624E;
+}
+
+.nav-link:last-child:hover {
+  color:#DD624E;
+}
+
+
+.nav-icons svg:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.nav-icons svg:hover {
+  color: #DD624E;
+}
+
+.nav-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+ /* The navigation menu */
+.navbar {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Navigation links */
+.links a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 22px 16px;
+}
+
+/* The subnavigation menu */
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+/* Subnav button */
+.subnav .subnavbtn {
+  border: none;
+  outline: none;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+
+/* Style the subnav content - positioned absolute */
+.subnav-content {
+  /* transform: scale(0); */
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 64px;
+  background-color: #DD624E;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Style the subnav links */
+.subnav-content a {
+  float: left;
+  color: black;
+}
+
+/* Add a grey background color on hover */
+.subnav-content a:hover {
+  font-weight: bold;
+}
+
+ /* When you move the mouse over the subnav container, open the subnav content */
+.subnav:hover .subnav-content {
+  /* transition: 1.5s; */
+  /* transform: none; */
+  display: block;
+}
+
+.subnav:hover .nav-link {
+  background-color: #DD624E;
+}
+
+.flex-subnav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.btn.btn-link {
+  border: 2px solid var(--main-balck);
+  border-radius: 25px;
+  padding: 10px 12px;
+  background-color: white;
+  margin-right: 1rem;
+  font-size: 1rem;
+}
+
+.btn.btn-link:hover {
+  color: var(--main-light-yellow);
+  background-color: var(--main-red);
+  border-color: var(--main-red);
+  transition: all .3s ease-in-out;
+}

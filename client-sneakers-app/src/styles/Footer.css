@@ -1,0 +1,34 @@
+ul {
+    list-style: none;
+    color: #dd624e;
+  }
+li {
+    color: #dd624e;
+}
+
+
+#copyright::before {
+
+    color: #dd624e;
+    position: absolute;
+    display: block;
+    content: '';
+    border: 1px solid #dd624e;
+    width: 100%;
+  }
+
+#copyright {
+   position: relative;
+}
+
+
+#footer-content {
+    background-color: #ffe794;
+    color: #dd624e;
+    padding: 14px 16px;
+    margin: 0;
+}
+
+#copyright p {
+  color: #dd624e
+}

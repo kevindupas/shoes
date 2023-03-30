@@ -1,0 +1,27 @@
+.main-btn {
+  background-color: #DD624E;
+  color: #FFFADF;
+  border: 1px solid #FFFADF;
+  border-radius: 25px;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+.main-btn:hover {
+  background-color: #FFFADF;
+  color: #DD624E;
+}
+
+.alt-btn {
+  background-color: #FFFADF;
+  color: #DD624E;
+  border-radius: 25px;
+  padding: 12px 24px;
+  border: 1px solid #FFFADF;
+  cursor: pointer;
+}
+
+.alt-btn:hover {
+  background-color: #DD624E;
+  color:#FFFADF
+}

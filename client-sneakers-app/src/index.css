@@ -1,0 +1,36 @@
+/* Import fonts from google */
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@1,700&family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap');
+
+body {
+  margin:0;
+  padding: 0;
+  border:0;
+  font-size: 16px;
+  font-family: 'Montserrat';
+}
+
+.btn {
+  font-family: 'Montserrat';
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+ul {
+  padding-left: unset;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ccc;
+  width: 100%;
+}
+
+.error {
+  font-size: .75rem;
+  color: red;
+}
